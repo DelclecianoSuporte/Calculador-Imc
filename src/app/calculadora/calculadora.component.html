@@ -1,0 +1,66 @@
+<div class="container-pai">
+
+  <div class="cabecalho">
+    <h1 class="titulo-aplicacao">Calculadora IMC</h1>
+    <p class="descreve-aplicacao">Entenda melhor o seu peso em relação à sua altura usando <br>
+      nossa calculadora de índice de massa corporal (BM). <br> 
+      Embora o IMC não seja o único determinante de um peso saudável, <br>
+      oferece um valioso ponto de partida para avaliar sua saúde e bem-estar geral.
+    </p>
+  </div>
+
+
+  <div class="card-wrapper">
+      <p class="descricao-imc">Insira seus dados abaixo</p>
+
+        <div class="container">
+            <div class="radio-btn-group">
+              <label class="radio-btn">
+                <input type="radio" name="unidade" value="metric" (click)="selecioneUnidade('metric')" />
+                <span class="label-text">Metric</span>
+              </label>
+            
+              <label class="radio-btn">
+                <input type="radio" name="unidade" value="imperial" (click)="selecioneUnidade('imperial')" />
+                <span class="label-text">Imperial</span>
+              </label>
+            </div>
+        
+          <div class="input-group">
+              <!-- Input para a altura com o texto "cm" no final -->
+              <label class="input-label">
+                <span class="input-item">Altura:</span>
+                <div class="input-container">
+                  <input class="numero" type="text" name="altura" [(ngModel)]="altura" (keyup)="calcularIMC()" [disabled]="!unidadeSelecionada"/>
+                  <span class="medicao">cm</span>
+                </div>
+              </label>
+            
+              <!-- Input para o peso com o texto "kg" no final -->
+              <label class="input-label">
+                <span class="input-item">Peso:</span>
+                <div class="input-container">
+                  <input  class="numero" type="text" name="peso" [(ngModel)]="peso" (keyup)="calcularIMC()" [disabled]="!unidadeSelecionada" />
+                  <span class="medicao">kg</span>
+                </div>
+              </label>
+          </div>
+        </div>
+
+      <br><br>
+
+        <div class="conteudo-1-imc">
+          <div class="div-resultado">
+            <p class="texto-resultado">Seu IMC é...</p>
+            <span class="valor-resultado">{{ resultadoIMC }}</span>
+          </div>
+
+          <div class="div-descricao">
+            <p class="texto-descricao">Seu IMC sugere que você possui um peso saudavel. </p>
+            <p class="texto-descricao">Seu peso ideal está entre TESTE - TESTE.</p>
+          </div>
+        </div>
+  </div>
+</div>
+
+   
