@@ -1,45 +1,8 @@
-/* .container-pai {
-    position: relative;
-}
-
-
-.cabecalho {
-  background-color: #e3f4fe;
-  padding: 180px 95px 95px 95px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-  height: 300px;
-  margin-right: 650px;
-} 
 
 .card-wrapper {
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
     position: absolute;
     top: 100px; 
-    left: 780px; 
-    z-index: 10;
-}
- */
-
- .container-pai {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 1200px; /* Ajuste conforme necessário */
-}
-
-
-.card-wrapper {
-    position: absolute;
-    top: 100px; /* Ajuste conforme necessário */
-    left: 70%; /* Aumente ou diminua conforme necessário */
+    left: 70%;
     transform: translateX(-50%);
     margin: 0 auto;
     padding: 20px;
@@ -50,7 +13,7 @@
 
 .cabecalho {
     background-color: #e3f4fe;
-    padding: 180px 50px 95px 50px; /* Ajuste conforme necessário */
+    padding: 180px 50px 95px 50px; 
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     height: 300px;
@@ -71,7 +34,7 @@
 }
 
 .descreve-aplicacao {
-    font-size: 14px;
+    font-size: 10px;
     color: #728091;
     font-family: Arial, Helvetica, sans-serif;
     white-space: pre-line;
@@ -141,6 +104,23 @@ p.descricao-imc {
     transform: translateY(-50%);
 }
 
+.conteudo-saudacao {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.mensagem-saudacao
+{
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.mensagem-indicacao {
+    font-size: 10px;
+    color: #fff;
+}
 
 .input-item
 {
@@ -200,8 +180,7 @@ p.descricao-imc {
 }
 
 
-/* Mídia query para telas menores, como celulares */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 863px) {
     .radio-btn-group {
         display: flex;
         gap: 10px;
@@ -218,7 +197,7 @@ p.descricao-imc {
     }
 
     .medicao {
-        right: 32px; /* Ou qualquer valor que melhor se ajuste às telas menores */
+        right: 32px; 
         position: relative;
         top: 0;
         transform: translateY(0);
@@ -249,10 +228,96 @@ p.descricao-imc {
         font-size: 12px;
         color: #728091;
         font-family: Arial, Helvetica, sans-serif;
-        text-align: center; /* Ajusta o alinhamento à esquerda */
+        text-align: center; 
         line-height: 1.6;
-        max-width: 600px; /* Define uma largura máxima para evitar que o texto se estenda demais */
-        margin: 0 auto; /* Centraliza o parágrafo */
+        max-width: 600px; 
+        margin: 0 auto; 
+        margin-top: 15px;
+    }
+
+    .container-pai {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .cabecalho {
+        padding: 20px;
+        margin-right: 0;
+        text-align: center;
+        width: 70%;
+    }
+
+    .card-wrapper {
+        margin-top: 100px;
+        position: absolute;
+        top: 200px; 
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .radio-btn-group {
+        display: flex;
+        gap: 10px;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .descricao-imc
+    {
+        font-size: 16px;
+    }
+
+    .medicao {
+        right: 32px; 
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+    }
+
+    .conteudo-1-imc {
+        flex-direction: column;
+        padding: 10px;
+        margin: 0 auto;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-radius: 18px;
+        min-width: 200px;
+        margin-right: 0;
+    }
+
+    .div-resultado
+    {
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    
+    .titulo-aplicacao {
+        text-align: center;
+    }
+
+    .descreve-aplicacao {
+        font-size: 12px;
+        color: #728091;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center; 
+        line-height: 1.6;
+        max-width: 600px; 
+        margin: 0 auto; 
         margin-top: 15px;
     }
 
@@ -273,7 +338,7 @@ p.descricao-imc {
 
     .card-wrapper {
         position: absolute;
-        top: 300px; /* Ajuste conforme necessário para posicionar abaixo da div de cabeçalho */
+        top: 300px; 
         left: 50%;
         transform: translateX(-50%);
         margin: 0 auto;
@@ -282,5 +347,4 @@ p.descricao-imc {
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
     }
-
 }

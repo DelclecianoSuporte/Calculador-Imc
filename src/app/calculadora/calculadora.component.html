@@ -27,7 +27,6 @@
             </div>
         
           <div class="input-group">
-              <!-- Input para a altura com o texto "cm" no final -->
               <label class="input-label">
                 <span class="input-item">Altura:</span>
                 <div class="input-container">
@@ -36,7 +35,6 @@
                 </div>
               </label>
             
-              <!-- Input para o peso com o texto "kg" no final -->
               <label class="input-label">
                 <span class="input-item">Peso:</span>
                 <div class="input-container">
@@ -50,16 +48,23 @@
       <br><br>
 
         <div class="conteudo-1-imc">
+          
+          <!-- <div class="conteudo-saudacao">
+            <span class="mensagem-saudacao" *ngIf="mostrarSaudacao">Bem-Vindo!</span>
+            <span class="mensagem-indicacao">Insira sua altura e peso e você verá seu resultado de IMC aqui</span>
+          </div> -->
+          
           <div class="div-resultado">
             <p class="texto-resultado">Seu IMC é...</p>
             <span class="valor-resultado">{{ resultadoIMC }}</span>
           </div>
 
           <div class="div-descricao">
-            <p class="texto-descricao">Seu IMC sugere que você possui um peso saudavel. </p>
-            <p class="texto-descricao">Seu peso ideal está entre TESTE - TESTE.</p>
+            <p class="texto-descricao">Seu IMC indica que você possui um {{ descricaoIMC }} </p>
+            <p class="texto-descricao">Seu peso ideal está entre {{ pesoIdeal }}.</p>
           </div>
         </div>
+
   </div>
 </div>
 
