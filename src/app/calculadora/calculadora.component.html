@@ -31,7 +31,7 @@
                 <span class="input-item">Altura:</span>
                 <div class="input-container">
                   <input class="numero" type="text" name="altura" [(ngModel)]="altura" (keyup)="calcularIMC()" [disabled]="!unidadeSelecionada"/>
-                  <span class="medicao">cm</span>
+                  <span class="medicao">{{ unidadeAltura }}</span>
                 </div>
               </label>
             
@@ -39,7 +39,7 @@
                 <span class="input-item">Peso:</span>
                 <div class="input-container">
                   <input  class="numero" type="text" name="peso" [(ngModel)]="peso" (keyup)="calcularIMC()" [disabled]="!unidadeSelecionada" />
-                  <span class="medicao">kg</span>
+                  <span class="medicao">{{ unidadePeso }}</span>
                 </div>
               </label>
           </div>
@@ -64,8 +64,95 @@
             <p class="texto-descricao">Seu peso ideal está entre <br> <span>{{ pesoIdeal }}</span>.</p>
           </div>
         </div>
-
   </div>
 </div>
+
+<section>
+  <div class="container-itens-1">
+    <div class="item-1">
+      <i class="fas fa-apple-alt icon"></i>
+      <h3 class="titulo-saude">Alimentação saudável</h3>
+      <p class="descricao-saude">A alimentação saudável promove o controle de peso, <br> 
+        prevenção de doenças, melhor digestão, <br> imunidade, clareza mental e humor.
+      </p>
+    </div>
+
+    <div class="item-2">
+      <i class="fas fa-dumbbell icon"></i>
+      <h3 class="titulo-saude">Exercício regular</h3>
+      <p class="descricao-saude">O exercício melhora a aptidão física, <br> auxilia no controle de peso, 
+        eleva o humor e reduz o risco de doenças, <br> promovendo bem-estar e longevidade.
+      </p>
+    </div>
+
+    <div class="item-3">
+      <i class="fas fa-moon icon"></i>
+      <h3 class="titulo-saude">Sono adequado</h3>
+      <p class="descricao-saude">O sono melhora a clareza mental, <br> a estabilidade emocional e o bem-estar físico, 
+        <br> promovendo a restauração e o rejuvenescimento geral.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="card-container">
+  <div class="container-group">
+
+    <div class="bloco-limitacao">
+      <h2 class="titulo-limitacao">Limitações do IMC</h2>
+      <p class="descricao-limitacao">
+        Embora o IMC seja frequentemente um indicador prático de peso saudável,<br>
+        ele não é adequado para todas as pessoas. <br> 
+        Grupos específicos devem avaliar cuidadosamente seus resultados de IMC e, <br>
+        em certos casos, a medição pode não ser benéfica para uso.
+      </p>
+    </div>
+
+    <div class="card-limitacao">
+      <h3><i class="fas fa-genderless icon"></i> Gênero</h3>
+      <p>
+        O desenvolvimento e a composição da gordura corporal
+        de meninas e meninos variam com a idade.
+        Consequentemente, a idade e o gênero da criança
+        são considerados ao avaliar seu IMC.
+      </p>
+    </div>
+
+    <div class="card-limitacao">
+      <h3><i class="fas fa-calendar-alt icon"></i> Idade</h3>
+      <p>
+        Em indivíduos idosos, o aumento da gordura corporal
+        e a perda muscular podem fazer com que o IMC
+        subestime o conteúdo de gordura corporal.
+      </p>
+    </div>
+
+    <div class="card-limitacao">
+      <h3><i class="fas fa-dumbbell icon"></i> Músculo</h3>
+      <p>
+        O IMC pode classificar erroneamente indivíduos musculosos como sobrepeso ou obesos,
+        pois não diferencia músculos.
+      </p>
+    </div>
+
+    <div class="card-limitacao">
+      <h3><i class="fas fa-baby icon"></i> Gravidez</h3>
+      <p>
+        As gestantes apresentam ganho de peso devido ao crescimento do bebê. 
+        Manter um IMC pré-gestacional saudável é aconselhável para minimizar
+        os riscos à saúde tanto para a mãe quanto para o filho.
+      </p>
+    </div>
+    
+    <div class="card-limitacao">
+      <h3><i class="fas fa-running icon"></i> Corrida</h3>
+      <p>
+        Certos problemas de saúde podem afetar indivíduos de algumas origens negra e asiática com IMCs 
+        mais baixos do que outros. Para saber mais,
+        é aconselhável discutir isso com seu médico ou enfermeiro.
+      </p>
+    </div>
+  </div>
+</section>
 
    

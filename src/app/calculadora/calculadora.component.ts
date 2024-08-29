@@ -15,7 +15,10 @@ export class CalculadoraComponent {
   resultadoIMC: string = "";
   descricaoIMC: string = "";
   pesoIdeal: string = "";
-  unidadeSelecionada: boolean = false; 
+  unidadeSelecionada: string | null = null;
+
+  unidadePeso: string = 'kg';
+  unidadeAltura: string = 'cm';
 
   imcRanges = [
     {
@@ -54,19 +57,36 @@ export class CalculadoraComponent {
   constructor() {}
 
   selecioneUnidade(unidade: string): void {
-    this.unidadeSelecionada = true;
+    this.unidadeSelecionada = unidade;
+
     if (unidade === 'metric') {
       alert('Por favor, insira o seu peso em kg e sua altura em cm.');
+      this.unidadePeso = 'kg';
+      this.unidadeAltura = 'cm';
+    } else if (unidade === 'imperial') {
+      alert('Por favor, insira o seu peso em libras e sua altura em polegadas.');
+      this.unidadePeso = 'lbs';
+      this.unidadeAltura = 'in';
     }
+
+    this.calcularIMC();
   }
 
   calcularIMC(): void {
     if (this.peso !== null && this.altura !== null) {
-      let alturaEmMetros = this.altura / 100;
-      let imc = this.peso / (alturaEmMetros * alturaEmMetros);
+      let imc: number;
+
+      if (this.unidadeSelecionada === 'imperial') {
+        imc = (this.peso as number) * 703 / ((this.altura as number) ** 2);
+      } 
+      else {
+        let alturaEmMetros = (this.altura as number) / 100;
+        imc = (this.peso as number) / (alturaEmMetros * alturaEmMetros);
+      }
+
       this.resultadoIMC = imc.toFixed(2);
       this.descricaoIMC = this.retornaDescricaoIMC(imc);
-      this.pesoIdeal = this.calcularPesoIdeal(this.altura);
+      this.pesoIdeal = this.calcularPesoIdeal();
     }
   }
 
@@ -79,10 +99,24 @@ export class CalculadoraComponent {
     return "IMC fora do intervalo";
   }
 
-  calcularPesoIdeal(altura: number): string {
-    let alturaEmMetros = altura / 100;
-    let pesoMin = (18.5 * (alturaEmMetros ** 2)).toFixed(2);
-    let pesoMax = (24.9 * (alturaEmMetros ** 2)).toFixed(2);
-    return `${pesoMin} kg - ${pesoMax} kg`;
+  calcularPesoIdeal(): string {
+    let alturaEmMetros: number;
+    if (this.unidadeSelecionada === 'imperial') {
+      // Converter polegadas para metros
+      alturaEmMetros = (this.altura as number) * 0.0254;
+    } 
+    else {
+      alturaEmMetros = (this.altura as number) / 100;
+    }
+
+    let pesoMinKg = 18.5 * (alturaEmMetros ** 2);
+    let pesoMaxKg = 24.9 * (alturaEmMetros ** 2);
+
+    if (this.unidadeSelecionada === 'imperial') {
+      // Converter kg para libras
+      pesoMinKg *= 2.20462;
+      pesoMaxKg *= 2.20462;
+    }
+    return `${pesoMinKg.toFixed(2)} ${this.unidadeSelecionada === 'imperial' ? 'lbs' : 'kg'} - ${pesoMaxKg.toFixed(2)} ${this.unidadeSelecionada === 'imperial' ? 'lbs' : 'kg'}`;
   }
 }
